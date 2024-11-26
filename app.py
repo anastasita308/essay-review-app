@@ -29,13 +29,17 @@ def main():
     
     review_task_prompt = """
     Task: Write a list of feedback comments, similar to the suggestions a reviewer might make.
-    The main focus of your feedback should be on clarity of the article. The arguments, and key concepts of the paper need to be clearly communicated to the reader. 
-    The text needs to provide enough context and background information on the company.
+    The main focus of your feedback should be on clarity of the essay. 
+    The arguments, and key concepts of the paper need to be clearly communicated to the reader.
+    The thesis has to be clearly stated in the introduction, so that the reader understands what the paper sets out to achieve.
+    The thesis has to guide the rest of the essay, so that further arguments and explanations meaningfully contribute to the thesis.
+    The writing has to be clear enough for a reader that has certain knowledge in philosophy, 
+    but not necessarily familiar with the specific topic of the essay.
     You need to leave feedback if the text is missing any key information and is not clear and concise.
     You need to leave feedback if the article uses redundant phrases or sentences.
     Be specific in your suggestions, including details
     about method and any particular
-    steps the authors should follow. However, don 't
+    steps the authors should follow. However, don't
     suggest things that have already been included or
     addressed in the paper.
     Your review comments should have a clear purpose;
@@ -88,7 +92,7 @@ def main():
             all_initial_comments_dict = transform_to_dict(merged_jsons_of_initial_comments)
         
         refine_prompt = f"""
-        You are given a list of comments for the philosophical essay that answers this question: {essay_question}, 
+        You are given a list of comments for the philosophy essay that answers this question: {essay_question}, 
         each group of comments was written for a chunk. You have previously reviewed the essay and provided feedback on clarity.
         Because of the way the comments were generated, if something was commented on in one chunk, 
         may have been explained in another chunk.
